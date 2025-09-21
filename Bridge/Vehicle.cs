@@ -51,7 +51,7 @@ namespace Bridge
         {
             if (BroBizz)
             {
-                return BasePrice * 0.90;
+                return BasePrice * Policy.BroBizzDiscount;
             }
             return BasePrice;
         }

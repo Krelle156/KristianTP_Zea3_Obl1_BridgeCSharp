@@ -2,7 +2,10 @@
 {
     public class Car : Vehicle
     {
-        protected override double BasePrice => 230;
+        /// <summary>
+        /// Base price for a car, as defined in the Policy class.
+        /// </summary>
+        protected override double BasePrice => Policy.CarBasePrice;
 
         /// <summary>
         /// Constructor for creating a car instance.
@@ -18,7 +21,7 @@
         /// <returns>A string containing the name of the vehicle's type</returns>
         public override string VehicleType()
         {
-            return "Car";
+            return Policy.CarTypeName;
         }
     }
 }

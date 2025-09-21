@@ -23,7 +23,7 @@ namespace StoreBaeltTicketLibrary.Tests
         [TestMethod()]
         public void PriceTestNotWeekend()
         {
-            StoreBæltTicket testTicket = new StoreBæltTicket("AB12345", new DateTime(2025-09-22), "Car");
+            StoreBæltTicket testTicket = new StoreBæltTicket("AB12345", new DateTime(2025 - 09 - 22), "Car");
             Assert.AreEqual(230, testTicket.Price());
         }
 
@@ -39,6 +39,14 @@ namespace StoreBaeltTicketLibrary.Tests
         {
             StoreBæltTicket testTicket = new StoreBæltTicket("AB12345", new DateTime(2025, 09, 21), "MC");
             Assert.AreEqual(120, testTicket.Price());
+        }
+
+        [TestMethod()]
+        public void PriceTestBroBizzWeekendCar()
+        {
+            StoreBæltTicket testTicket = new("AB12345", new DateTime(2025, 09, 21), "Car");
+            testTicket.SetBroBizz(true);
+            Assert.AreEqual(230 * 0.85 * 0.9, testTicket.Price(), 0.0001);
         }
     }
 }

@@ -31,6 +31,11 @@ namespace StoreBaeltTicketLibrary
             }
         }
 
+        public void SetBroBizz(bool value)
+        {
+            Vehicle.BroBizz = value;
+        }
+
         /// <summary>
         /// A function for getting the price of the ticket specific to StoreBælt.
         /// </summary>
