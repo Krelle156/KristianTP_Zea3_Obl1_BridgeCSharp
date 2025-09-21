@@ -19,6 +19,11 @@ namespace Bridge
         public DateTime Date { get; set; }
 
         /// <summary>
+        /// Bool, where true indicates the prescence of a BroBizz device.
+        /// </summary>
+        public bool BroBizz { get; set; } = false;
+
+        /// <summary>
         /// Base constructor for the abstract class vehicle. Cannot be called directly.
         /// </summary>
         /// <param name="licensePlate">The licensePlate of the vehicle</param>
@@ -34,10 +39,22 @@ namespace Bridge
         }
 
         /// <summary>
-        /// The price of the vehicle passing toll. Must be implemented in derived classes.
+        /// The price before any discounts. Must be implemented in derived classes.
+        /// </summary>
+        protected abstract double BasePrice { get; }
+
+        /// <summary>
+        /// The price of the vehicle passing toll.
         /// </summary>
         /// <returns>The price of passing toll as a double</returns>
-        public abstract double Price();
+        public double Price()
+        {
+            if (BroBizz)
+            {
+                return BasePrice * 0.90;
+            }
+            return BasePrice;
+        }
 
         /// <summary>
         /// The type of vehicle as a string. Must be implemented in derived classes.

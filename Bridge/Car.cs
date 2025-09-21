@@ -2,6 +2,8 @@
 {
     public class Car : Vehicle
     {
+        protected override double BasePrice => 230;
+
         /// <summary>
         /// Constructor for creating a car instance.
         /// </summary>
@@ -9,14 +11,6 @@
         /// <param name="date">TBD possibly the date of this car passing toll</param>
         public Car(string licensePlate, DateTime date) : base(licensePlate, date) { }
 
-        /// <summary>
-        /// A function that gets you the toll levied on this type of vehicle.
-        /// </summary>
-        /// <returns>A double representing the toll for this type of vehicle.</returns>
-        public override double Price()
-        {
-            return 230;
-        }
 
         /// <summary>
         /// A function that returns a string representing the type of vehicle.

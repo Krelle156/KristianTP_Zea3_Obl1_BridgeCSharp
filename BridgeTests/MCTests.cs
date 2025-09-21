@@ -5,9 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Bridge.Tests
 {
+    [ExcludeFromCodeCoverage]
     [TestClass()]
     public class MCTests
     {
@@ -25,6 +27,15 @@ namespace Bridge.Tests
         {
             MC testMotorCarriage = new MC("MC12345", DateTime.Now);
             Assert.AreEqual(120, testMotorCarriage.Price());
+        }
+
+        [TestMethod()]
+        public void BroBizzPriceTest()
+        {
+            MC testMotorCarriage = new MC("MC12345", DateTime.Now);
+            double basePrice = testMotorCarriage.Price();
+            testMotorCarriage.BroBizz = true;
+            Assert.AreEqual(basePrice*0.9, testMotorCarriage.Price(), 0.0001);
         }
 
         [TestMethod()]

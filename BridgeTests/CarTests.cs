@@ -33,6 +33,15 @@ namespace Bridge.Tests
         }
 
         [TestMethod()]
+        public void BroBizzPriceTest()
+        {
+            Car testCar = new Car("AHAB185", DateTime.Now);
+            double basePrice = testCar.Price();
+            testCar.BroBizz = true;
+            Assert.AreEqual(basePrice*0.9, testCar.Price(), 0.0001);
+        }
+
+        [TestMethod()]
         public void VehicleTypeTest()
         {
             Car testCar = new Car("AHAB185", DateTime.Now);
