@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bridge</name>
+    </assembly>
+    <members>
+        <member name="M:Bridge.Car.#ctor(System.String,System.DateTime)">
+            <summary>
+            Constructor for creating a car instance.
+            </summary>
+            <param name="licencePlate">The license plate of the car.</param>
+            <param name="date">TBD possibly the date of this car passing toll</param>
+        </member>
+        <member name="M:Bridge.Car.VehicleType">
+            <summary>
+            A function that returns a string representing the type of vehicle.
+            </summary>
+            <returns>A string containing the name of the vehicle's type</returns>
+        </member>
+        <member name="M:Bridge.MC.#ctor(System.String,System.DateTime)">
+            <summary>
+            Constructor for creating a MC instance.
+            </summary>
+            <param name="licencePlate">The license plate of the MC.</param>
+            <param name="date">TBD possibly the date of this MC passing toll</param>
+        </member>
+        <member name="M:Bridge.MC.VehicleType">
+            <summary>
+            A function that returns a string representing the type of vehicle.
+            </summary>
+            <returns>A string containing the name of the vehicle's type</returns>
+        </member>
+        <member name="P:Bridge.Vehicle.LicensePlate">
+            <summary>
+            The licence plate of the vehicle. No restrictions on getting and setting.
+            </summary>
+        </member>
+        <member name="P:Bridge.Vehicle.Date">
+            <summary>
+            The date of the vehicle passing toll. No restrictions on getting and setting.
+            </summary>
+        </member>
+        <member name="P:Bridge.Vehicle.BroBizz">
+            <summary>
+            Bool, where true indicates the prescence of a BroBizz device.
+            </summary>
+        </member>
+        <member name="M:Bridge.Vehicle.#ctor(System.String,System.DateTime)">
+            <summary>
+            Base constructor for the abstract class vehicle. Cannot be called directly.
+            </summary>
+            <param name="licensePlate">The licensePlate of the vehicle</param>
+            <param name="date">The date where the vehicle passes toll</param>
+        </member>
+        <member name="P:Bridge.Vehicle.BasePrice">
+            <summary>
+            The price before any discounts. Must be implemented in derived classes.
+            </summary>
+        </member>
+        <member name="M:Bridge.Vehicle.Price">
+            <summary>
+            The price of the vehicle passing toll.
+            </summary>
+            <returns>The price of passing toll as a double</returns>
+        </member>
+        <member name="M:Bridge.Vehicle.VehicleType">
+            <summary>
+            The type of vehicle as a string. Must be implemented in derived classes.
+            </summary>
+            <returns>The type of vehicle as a string</returns>
+        </member>
+    </members>
+</doc>
