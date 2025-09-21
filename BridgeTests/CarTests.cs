@@ -19,15 +19,15 @@ namespace Bridge.Tests
         public void CarTest()
         {
             DateTime testDate = new DateTime(2015, 11, 11);
-            Car testCar = new Car("AHAB1851", testDate);
-            Assert.AreEqual("AHAB1851", testCar.LicencePlate);
+            Car testCar = new Car("AHAB185", testDate);
+            Assert.AreEqual("AHAB185", testCar.LicencePlate);
             Assert.AreEqual(testDate, testCar.Date);
         }
 
         [TestMethod()]
         public void PriceTest()
         {
-            Car testCar = new Car("AHAB1851", DateTime.Now);
+            Car testCar = new Car("AHAB185", DateTime.Now);
             //Antager at prisen forbliver 230, per opgavebeskrivelsen, selvom det virker lidt udynamisk.
             Assert.AreEqual(230, testCar.Price());
         }
@@ -35,7 +35,7 @@ namespace Bridge.Tests
         [TestMethod()]
         public void VehicleTypeTest()
         {
-            Car testCar = new Car("AHAB1851", DateTime.Now);
+            Car testCar = new Car("AHAB185", DateTime.Now);
             Assert.AreEqual("Car", testCar.VehicleType());
         }
     }
