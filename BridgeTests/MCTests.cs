@@ -16,7 +16,7 @@ namespace Bridge.Tests
         {
             DateTime testDate = new DateTime(2020, 1, 1);
             MC testCycle = new MC("MC12345", testDate);
-            Assert.AreEqual("MC12345", testCycle.LicencePlate);
+            Assert.AreEqual("MC12345", testCycle.LicensePlate);
             Assert.AreEqual(testDate, testCycle.Date);
         }
 

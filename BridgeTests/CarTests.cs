@@ -20,7 +20,7 @@ namespace Bridge.Tests
         {
             DateTime testDate = new DateTime(2015, 11, 11);
             Car testCar = new Car("AHAB185", testDate);
-            Assert.AreEqual("AHAB185", testCar.LicencePlate);
+            Assert.AreEqual("AHAB185", testCar.LicensePlate);
             Assert.AreEqual(testDate, testCar.Date);
         }
 
