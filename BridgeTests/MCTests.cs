@@ -33,5 +33,12 @@ namespace Bridge.Tests
             MC testMineCraft = new MC("MC12345", DateTime.Now);
             Assert.AreEqual("MC", testMineCraft.VehicleType());
         }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
+        public void LicensePlateTooLong()
+        {
+            MC testCycle = new MC("MC123456", DateTime.Now);
+        }
     }
 }

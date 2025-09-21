@@ -25,6 +25,10 @@ namespace Bridge
         /// <param name="date">The date where the vehicle passes toll</param>
         public Vehicle(string licensePlate, DateTime date)
         {
+            if(licensePlate.Length > 7)
+            {
+                throw new ArgumentException("License plate cannot be longer than 7 characters.");
+            }
             LicensePlate = licensePlate;
             Date = date;
         }

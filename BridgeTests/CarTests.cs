@@ -38,5 +38,12 @@ namespace Bridge.Tests
             Car testCar = new Car("AHAB185", DateTime.Now);
             Assert.AreEqual("Car", testCar.VehicleType());
         }
+
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
+        public void LicensePlateTooLong()
+        {
+            Car testCar = new Car("AHAB1851", DateTime.Now);
+        }
     }
 }
