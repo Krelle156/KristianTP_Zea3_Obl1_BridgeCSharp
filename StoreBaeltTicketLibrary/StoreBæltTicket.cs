@@ -7,23 +7,24 @@ namespace StoreBaeltTicketLibrary
         /// <summary>
         /// Details of the vehicle and its standard price
         /// </summary>
-        public Vehicle Vehicle { get; set; }
+        private Vehicle _vehicle
 
         /// <summary>
         /// The constuctor for creating a StoreBælt ticket.
         /// </summary>
         /// <param name="lisencePlate">The lisence plate for the vehicle</param>
+        /// <param name="date">The date where the vehicle passes toll</param>
         /// <param name="type">The type of the vehicle expressed as a string...</param>
         /// <exception cref="ArgumentException">The exception thrown if the type is not a car or a mc (motorcycle)</exception>
         public StoreBæltTicket(string lisencePlate, DateTime date, string type)
         {
             if(type.ToLower() == "car")
             {
-                Vehicle = new Bridge.Car(lisencePlate, date);
+                _vehicle = new Bridge.Car(lisencePlate, date);
             }
             else if(type.ToLower() == "mc")
             {
-                Vehicle = new Bridge.MC(lisencePlate, date);
+                _vehicle = new Bridge.MC(lisencePlate, date);
             }
             else
             {
@@ -31,9 +32,13 @@ namespace StoreBaeltTicketLibrary
             }
         }
 
+        /// <summary>
+        /// Enables or disables the BroBizz functionality for the vehicle.
+        /// </summary>
+        /// <param name="value"><see langword="true"/> to enable BroBizz; <see langword="false"/> to disable it.</param>
         public void SetBroBizz(bool value)
         {
-            Vehicle.BroBizz = value;
+            _vehicle.BroBizz = value;
         }
 
         /// <summary>
@@ -42,9 +47,9 @@ namespace StoreBaeltTicketLibrary
         /// <returns>The price of the ticket</returns>
         public double Price()
         {
-            double basePrice = Vehicle.Price();
+            double basePrice = _vehicle.Price();
 
-            if (Vehicle.VehicleType() == "Car" && (Vehicle.Date.DayOfWeek == DayOfWeek.Saturday || Vehicle.Date.DayOfWeek == DayOfWeek.Sunday))
+            if (_vehicle.VehicleType() == "Car" && (_vehicle.Date.DayOfWeek == DayOfWeek.Saturday || Vehicle.Date.DayOfWeek == DayOfWeek.Sunday))
             {
                 basePrice *= 0.85;
             }
